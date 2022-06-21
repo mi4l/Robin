@@ -1,2 +1,4 @@
 # Documentation
-This is the initial documentation file.
+Below you'll find documentation of product, design, and engineering topics.
+
+[Product](./product/README.md)
