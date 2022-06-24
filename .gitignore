@@ -106,5 +106,5 @@ dist
 # Mac
 .DS_Store
 
-# Server
-.idea
+# Idea
+# .idea
