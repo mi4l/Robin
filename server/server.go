@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"net/http"
 )
 
 type TestStruct struct {
@@ -14,13 +13,18 @@ type TestStruct struct {
 func main() {
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
+		/*
 		testJSON := &TestStruct{
 			Username: "jacob",
 			Age:      34,
-			NumPosts: 938409,
+			NumPosts: 200,
 		}
 
-		return c.JSON(http.StatusOK, testJSON)
+		e.File("/", "../templates/index.html")
+		*/
+
+		return c.File("../templates/index.html")
+		//return c.JSON(http.StatusOK, testJSON)
 	})
 	e.Logger.Fatal(e.Start(":1323"))
 }
