@@ -2,9 +2,10 @@
   "name": "browser",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "client/index.js",
   "scripts": {
-    "start:dev": "parcel client/index.js",
+    "clone-template": "node scripts/clone_template_html.js",
+    "start:dev": "npm run clone-template && parcel .generated/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
