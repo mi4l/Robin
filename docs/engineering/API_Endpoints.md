@@ -7,4 +7,4 @@
 
 - GET /schedule
 
-- GET /posts?term="dogs"?start=01-01-2022&end=01-31-2022 (example of searching with keyword and date range parameters)
+- GET /content?term="dogs"?start=01-01-2022&end=01-31-2022 (example of searching with keyword and date range parameters)
