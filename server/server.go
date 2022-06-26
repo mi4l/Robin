@@ -6,15 +6,18 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type MetaStruct struct {
+type ContentResponseMeta struct {
 	Total int `json:"total"`
 }
 
-type TestJSON struct {
-	Meta MetaStruct `json:"meta"`
-	Data []string `json:"data"`
+type Content struct {
+	Body string `json:"body"`
 }
 
+type Response struct {
+	Meta ContentResponseMeta `json:"meta"`
+	Data []Content `json:"data"`
+}
 
 
 func main() {
@@ -26,13 +29,13 @@ func main() {
 		
 	})
 
-	test := &TestJSON{
-		Meta: MetaStruct{},
-		Data: []string{},
+	res := &Response{
+		Meta: ContentResponseMeta{},
+		Data: []Content{},
 	}
 
 	e.GET("/content", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, test)
+		return c.JSON(http.StatusOK, res)
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))
