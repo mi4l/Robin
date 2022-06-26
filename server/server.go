@@ -14,7 +14,7 @@ type Content struct {
 	Body string `json:"body"`
 }
 
-type Response struct {
+type ContentResponse struct {
 	Meta ContentResponseMeta `json:"meta"`
 	Data []Content `json:"data"`
 }
@@ -29,7 +29,7 @@ func main() {
 		
 	})
 
-	res := &Response{
+	res := &ContentResponse{
 		Meta: ContentResponseMeta{},
 		Data: []Content{},
 	}
