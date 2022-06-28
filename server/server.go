@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net/http"
-	"strings"
 
 	"github.com/labstack/echo/v4"
 )
@@ -22,22 +20,11 @@ type ContentResponse struct {
 	Data []Content `json:"data"`
 }
 
-func handlePostReq() {
-	url := "" // FB API
-
-	payload := strings.NewReader("name=test&otherThing=test2")
-
-	req, _ := http.NewRequest("POST", url, payload)
-
-	req.Header.Add("content-type", "application/x-www-form-urlencoded")
-	req.Header.Add("cache-control", "no-cache")
-
-  res, _ := http.DefaultClient.Do(req)
-
-  defer res.Body.Close()
-  body, _ := ioutil.ReadAll(res.Body)
-
-  fmt.Println(string(body))
+func handlePostReq(w http.ResponseWriter, req *http.Request) {
+  req.ParseForm()
+  fmt.Println("id", req.Form["id"])
+  req.Form.Get("id")
+  fmt.Println(req.PostFormValue("id"))
 }
 
 func main() {
@@ -58,5 +45,8 @@ func main() {
 		return c.JSON(http.StatusOK, res)
 	})
 
-	e.Logger.Fatal(e.Start(":1323"))
+  http.HandleFunc("/postTest", handlePostReq)
+
+	// e.Logger.Fatal(e.Start(":1323"))
+  e.Logger.Fatal(http.ListenAndServe(":1323", nil))
 }
