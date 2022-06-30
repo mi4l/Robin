@@ -38,7 +38,8 @@ func main() {
 	})
 
   e.POST("/postTest", func(c echo.Context) error {
-    return c.JSON(http.StatusOK, res)
+    reqParams := c.QueryParams()
+    return c.JSON(http.StatusOK, reqParams)
   })
 
 	e.Logger.Fatal(e.Start(":1323"))
