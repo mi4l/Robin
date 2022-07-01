@@ -37,9 +37,20 @@ func main() {
 		return c.JSON(http.StatusOK, res)
 	})
 
-  e.POST("/postTest", func(c echo.Context) error {
-    reqParams := c.QueryParams()
-    return c.JSON(http.StatusOK, reqParams)
+  
+  type Content struct {
+    Username string `json:"username"`
+    ContentID string `json:"id"`
+    ContentBody string `json:"content_body"`
+  }
+
+  e.POST("/postTest", func(c echo.Context) (err error) {
+    content := new(Content)
+    if err = c.Bind(content); err != nil {
+      return
+    }
+
+    return c.JSON(http.StatusOK, content)
   })
 
 	e.Logger.Fatal(e.Start(":1323"))
