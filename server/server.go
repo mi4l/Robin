@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -37,17 +38,11 @@ func main() {
 		return c.JSON(http.StatusOK, res)
 	})
 
-  
-  type Content struct {
-    Username string `json:"username"`
-    ContentID string `json:"id"`
-    ContentBody string `json:"content_body"`
-  }
-
-  e.POST("/postTest", func(c echo.Context) (err error) {
+  e.POST("/content", func(c echo.Context) (err error) {
     content := new(Content)
     if err = c.Bind(content); err != nil {
-      return
+      fmt.Printf("There was an error processing the POST request. Error: %s", err.Error())
+      return err
     }
 
     return c.JSON(http.StatusOK, content)
