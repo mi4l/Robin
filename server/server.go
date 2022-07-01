@@ -12,7 +12,7 @@ type ContentResponseMeta struct {
 }
 
 type Content struct {
-	Body string `json:"content_body"`
+	ContentBody string `json:"content_body"`
 }
 
 type ContentResponse struct {
