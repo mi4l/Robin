@@ -20,6 +20,22 @@ type ContentResponse struct {
 	Data []Content `json:"data"`
 }
 
+type FBStruct struct {
+  ID string `json:"id"`
+}
+
+func requestFacebook(c echo.Context) error {
+  fbID := c.QueryParam("id")
+
+  fmt.Println(c.ParamNames())
+  fmt.Println(c.QueryParams())
+  fmt.Println(c.Request())
+
+  return c.JSON(http.StatusOK, map[string]string {
+    "id": fbID,
+  })
+}
+
 func main() {
 	e := echo.New()
 
@@ -28,8 +44,8 @@ func main() {
 		return c.File("../templates/index.html")
 		
 	})
-
-	res := &ContentResponse{
+	
+  res := &ContentResponse{
 		Meta: ContentResponseMeta{},
 		Data: []Content{},
 	}
@@ -47,6 +63,10 @@ func main() {
 
     return c.JSON(http.StatusOK, content)
   })
+
+  // FB
+  postURL := fmt.Sprintf("https://graph.facebook.com/%s/feed?message=testFromGo&access_token=%s", FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN)
+  e.POST(postURL, requestFacebook)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
