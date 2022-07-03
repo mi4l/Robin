@@ -1,7 +1,11 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -20,20 +24,31 @@ type ContentResponse struct {
 	Data []Content `json:"data"`
 }
 
-type FBStruct struct {
-  ID string `json:"id"`
-}
-
 func requestFacebook(c echo.Context) error {
-  fbID := c.QueryParam("id")
+  postURL := fmt.Sprintf("https://graph.facebook.com/%s/feed", FB_PAGE_ID)
 
-  fmt.Println(c.ParamNames())
-  fmt.Println(c.QueryParams())
-  fmt.Println(c.Request())
-
-  return c.JSON(http.StatusOK, map[string]string {
-    "id": fbID,
+  postBody, _ := json.Marshal(map[string]string{
+    "message":  "Hello from Go!",
+    "access_token": FB_PAGE_ACCESS_TOKEN,
   })
+  reqBody := bytes.NewBuffer(postBody)
+
+  resp, err := http.Post(postURL, "application/json", reqBody)
+
+  if err != nil {
+    log.Fatalf("An Error Occured %v", err)
+  }
+  
+  defer resp.Body.Close()
+
+  body, err := ioutil.ReadAll(resp.Body)
+  
+  if err != nil {
+    log.Fatalln(err)
+  }
+  fmt.Printf("server: request body: %s\n", body)
+
+  return c.String(http.StatusOK, "Successfully posted to Facebook!")
 }
 
 func main() {
@@ -54,19 +69,7 @@ func main() {
 		return c.JSON(http.StatusOK, res)
 	})
 
-  e.POST("/content", func(c echo.Context) (err error) {
-    content := new(Content)
-    if err = c.Bind(content); err != nil {
-      fmt.Printf("There was an error processing the POST request. Error: %s", err.Error())
-      return err
-    }
-
-    return c.JSON(http.StatusOK, content)
-  })
-
-  // FB
-  postURL := fmt.Sprintf("https://graph.facebook.com/%s/feed?message=testFromGo&access_token=%s", FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN)
-  e.POST(postURL, requestFacebook)
+  e.POST("/content", requestFacebook)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
