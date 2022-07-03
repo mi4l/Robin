@@ -112,3 +112,6 @@ dist
 
 # Idea
 .idea
+
+# API keys
+secrets.go
