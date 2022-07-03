@@ -24,24 +24,24 @@ type ContentResponse struct {
 	Data []Content `json:"data"`
 }
 
-func requestFacebook(c echo.Context) error {
+func requestPOSTFacebookContent(c echo.Context) error {
   postURL := fmt.Sprintf("https://graph.facebook.com/%s/feed", FB_PAGE_ID)
 
   postBody, _ := json.Marshal(map[string]string{
     "message":  "Hello from Go!",
     "access_token": FB_PAGE_ACCESS_TOKEN,
   })
-  reqBody := bytes.NewBuffer(postBody)
+  requestBody := bytes.NewBuffer(postBody)
 
-  resp, err := http.Post(postURL, "application/json", reqBody)
+  response, err := http.Post(postURL, "application/json", requestBody)
 
   if err != nil {
     log.Fatalf("An Error Occured %v", err)
   }
   
-  defer resp.Body.Close()
+  defer response.Body.Close()
 
-  body, err := ioutil.ReadAll(resp.Body)
+  body, err := ioutil.ReadAll(response.Body)
   
   if err != nil {
     log.Fatalln(err)
@@ -69,7 +69,7 @@ func main() {
 		return c.JSON(http.StatusOK, res)
 	})
 
-  e.POST("/content", requestFacebook)
+  e.POST("/content", requestPOSTFacebookContent)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
