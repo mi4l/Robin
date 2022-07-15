@@ -1,31 +1,32 @@
 import React from 'react';
-import { FiHome, FiLayers, FiSettings, FiLogOut, FiCircle } from 'react-icons/fi';
-import './NavigationMenu.css';
+import PropTypes from 'prop-types';
+import './NavigationMenu.scss';
 
-export const NavigationMenu = () => {
+export const NavigationMenu = ({ links }) => {
   return (
-    <>
-      <div className='navbar'>
-        <div className='nav-top'>
-          <div className='icon-container'>
-            <FiCircle className='nav-icon logo' />
-          </div>
-
-          <div className='icon-container'>
-            <FiHome className='nav-icon' />
-          </div>
-
-          <div className='icon-container'>
-            <FiLayers className='nav-icon' />
-          </div>
-        </div>
-        <div className='nav-bottom'>
-          <div className='icon-container'>
-            <FiSettings className='nav-icon' />
-          </div>
-          <div className='avatar'></div>
-        </div>
-      </div>
-    </>
+    <nav className='navbar'>
+      <ul className='nav-section-one'>
+        {links.map(link => {
+          if (link.name !== 'Settings') {
+            return (
+              <li className='icon-container'>
+                <img src={link.icon} className='nav-icon' alt={link.name} />
+              </li>
+            );
+          }
+        })}
+      </ul>
+    </nav>
   );
+};
+
+NavigationMenu.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      path: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+      isExternal: PropTypes.bool.isRequired,
+    }).isRequired
+  ).isRequired,
 };

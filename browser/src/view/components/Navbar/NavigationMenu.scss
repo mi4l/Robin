@@ -1,0 +1,56 @@
+@use '../../../styles/common/variables' as *;
+
+.navbar {
+  width: 82px;
+  height: 100vh;
+  background-color: $COLOR-BRAND-PRIMARY;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  .nav-section-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+  }
+
+  .nav-section-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24;
+  }
+
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    background-color: $COLOR-NAV-ICON-SELECTED-BG;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+    color: $COLOR-NAV-ICON;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 100;
+    background-color: $COLOR-AVATAR-BG;
+    color: $COLOR-AVATAR-FONT;
+  }
+}
