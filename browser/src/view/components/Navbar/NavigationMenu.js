@@ -8,7 +8,7 @@ export const NavigationMenu = ({ links }) => {
       <ul className='nav-user-actions'>
         {links.map(link => {
           return (
-            <li className='nav-icon-container'>
+            <li className='nav-icon-container' key={link.name}>
               <link.Icon />
             </li>
           );
@@ -23,7 +23,7 @@ NavigationMenu.propTypes = {
     PropTypes.shape({
       name: PropTypes.string,
       path: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
+      Icon: PropTypes.func.isRequired,
       isExternal: PropTypes.bool.isRequired,
     }).isRequired
   ).isRequired,
