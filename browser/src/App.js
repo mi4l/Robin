@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationMenu } from './view/components/Navbar/NavigationMenu';
+import { NavigationMenu } from './view/components/NavigationMenu/NavigationMenu';
 
 const navLinks = [
   {

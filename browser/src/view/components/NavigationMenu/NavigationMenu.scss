@@ -1,0 +1,31 @@
+@use '../../../styles/common/variables' as *;
+
+.navbar {
+  width: 82px;
+  height: 100vh;
+  background-color: $COLOR-BRAND-PRIMARY;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-user-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+}
+
+.nav-user-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24;
+}
