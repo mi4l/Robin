@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '../Button/Button';
 import './NavigationMenu.scss';
 
 export const NavigationMenu = ({ links }) => {
@@ -8,9 +9,12 @@ export const NavigationMenu = ({ links }) => {
       <ul className='nav-user-actions'>
         {links.map(link => {
           return (
-            <li className='nav-icon-container' key={link.name}>
-              <link.Icon />
-            </li>
+            <Button
+              className=''
+              label={link.label}
+              style='icon-label'
+              icon={<link.Icon />}
+            />
           );
         })}
       </ul>

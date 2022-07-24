@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavigationMenu } from './view/components/Navbar/NavigationMenu';
+import { NavigationMenu } from './view/components/NavigationMenu/NavigationMenu';
 
 const navLinks = [
   {
-    name: 'Logo',
+    label: 'Logo',
     path: '/',
     Icon: () => (
       <svg
@@ -24,7 +24,7 @@ const navLinks = [
     isExternal: false,
   },
   {
-    name: 'Home',
+    label: 'Home',
     path: '/',
     Icon: () => (
       <svg
@@ -46,7 +46,7 @@ const navLinks = [
     isExternal: false,
   },
   {
-    name: 'Content',
+    label: 'Content',
     path: '/',
     Icon: () => (
       <svg
@@ -69,7 +69,7 @@ const navLinks = [
     isExternal: false,
   },
   {
-    name: 'Settings',
+    label: 'Settings',
     path: '/',
     Icon: () => (
       <svg
