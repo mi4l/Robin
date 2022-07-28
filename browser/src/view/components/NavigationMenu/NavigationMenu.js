@@ -9,12 +9,15 @@ export const NavigationMenu = ({ links }) => {
       <ul className='nav-user-actions'>
         {links.map(link => {
           return (
-            <Button
-              className=''
-              label={link.label}
-              style='icon-label'
-              icon={<link.Icon />}
-            />
+            <li key={link.label}>
+              <Button
+                className=''
+                layout='icon'
+                label={link.label}
+                Icon={<link.Icon />}
+                type='primary'
+              />
+            </li>
           );
         })}
       </ul>
@@ -25,7 +28,7 @@ export const NavigationMenu = ({ links }) => {
 NavigationMenu.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
+      label: PropTypes.string,
       path: PropTypes.string.isRequired,
       Icon: PropTypes.func.isRequired,
       isExternal: PropTypes.bool.isRequired,

@@ -1,26 +1,37 @@
 @use '../../../styles/common/variables' as *;
 
-.btn-icon-container {
-  width: 48px;
+.btn-primary {
   height: 48px;
+  width: 48px;
   border-radius: 6px;
   background-color: $COLOR-BRAND-PRIMARY;
+  color: $COLOR-NAV-ICON;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
-  transition: background-color 200ms linear;
+  transition: all 200ms linear;
 
-  .btn-icon {
-    width: 20px;
-    height: 20px;
-    stroke: $COLOR-NAV-ICON;
+  .btn-icon-only {
+  }
+
+  .btn-label-only {
+  }
+
+  .btn-icon-label {
+    width: 100%;
+    padding-left: 15px;
   }
 
   &:hover,
   &:focus {
-    background-color: $COLOR-NAV-ICON-SELECTED-BG;
-    transition: background-color 200ms linear;
     cursor: pointer;
+    background-color: $COLOR-NAV-ICON-SELECTED-BG;
+    color: $COLOR-NAV-ICON-SELECTED;
+    transition: all 200ms linear;
   }
+}
+
+.btn-destructive {
+  // background-color: red;
 }
