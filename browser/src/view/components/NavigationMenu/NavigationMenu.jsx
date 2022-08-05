@@ -5,18 +5,12 @@ import './NavigationMenu.scss';
 
 export const NavigationMenu = ({ links }) => {
   return (
-    <nav className='navbar'>
+    <nav className='navbar open'>
       <ul className='nav-user-actions'>
         {links.map(link => {
           return (
             <li key={link.label}>
-              <Button
-                className=''
-                layout='icon'
-                label={link.label}
-                Icon={<link.Icon />}
-                type='primary'
-              />
+              <Button className='' label={link.label} Icon={<link.Icon />} type='primary' />
             </li>
           );
         })}

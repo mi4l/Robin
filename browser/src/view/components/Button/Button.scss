@@ -1,27 +1,26 @@
 @use '../../../styles/common/variables' as *;
 
-.btn-primary {
-  height: 48px;
-  width: 48px;
+.button {
+  font-family: 'Inter';
+  font-weight: 500;
+  height: 1.25rem;
+  width: 100%;
   border-radius: 6px;
+  border: none;
+  padding: 0.875rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  svg {
+    padding-right: 0.5rem;
+  }
+}
+
+.primary {
   background-color: $COLOR-BRAND-PRIMARY;
   color: $COLOR-NAV-ICON;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 200ms linear;
-
-  .btn-icon-only {
-  }
-
-  .btn-label-only {
-  }
-
-  .btn-icon-label {
-    width: 100%;
-    padding-left: 15px;
-  }
 
   &:hover,
   &:focus {
@@ -32,6 +31,22 @@
   }
 }
 
-.btn-destructive {
-  // background-color: red;
+.destructive {
+  background-color: $COLOR-BRAND-DESTRUCTIVE;
 }
+
+/*
+.icon-only {
+  width: 1.5rem;
+}
+
+.label-only {
+  width: 10rem;
+}
+
+.icon-label {
+  width: 10rem;
+  padding-left: 1.5rem;
+  justify-content: flex-start;
+}
+*/

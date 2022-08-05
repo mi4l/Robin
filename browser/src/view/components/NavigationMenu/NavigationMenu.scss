@@ -1,20 +1,20 @@
 @use '../../../styles/common/variables' as *;
 
 .navbar {
-  width: 82px;
   height: 100vh;
+  width: 5.25rem;
+  padding: 0 1rem;
   background-color: $COLOR-BRAND-PRIMARY;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   transition: all 200ms linear;
+}
 
-  // &:hover {
-  //   width: 279px;
-  //   box-shadow: 7px 0px 15px rgba(0, 0, 0, 0.25);
-  //   transition: all 200ms ease-out;
-  // }
+.open {
+  width: 12rem;
+  align-items: flex-start;
 }
 
 ul {
@@ -23,28 +23,31 @@ ul {
   margin: 0;
 
   li {
-    margin-bottom: 8px;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 
 .nav-user-actions {
+  // width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-items: center;
-  padding-top: 32px;
+  align-items: flex-start;
+  padding-top: 2rem;
 }
 
 .nav-user-settings {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 24;
+  padding-bottom: 1.5rem;
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 100;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
   background-color: $COLOR-AVATAR-BG;
   color: $COLOR-AVATAR-FONT;
 }
