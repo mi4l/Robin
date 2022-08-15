@@ -1,4 +1,5 @@
 import React from 'react';
+import { ContentCollection } from './view/components/Content/ContentCollection';
 import { NavigationMenu } from './view/components/Navbar/NavigationMenu';
 
 const navLinks = [
@@ -93,5 +94,6 @@ const navLinks = [
 ];
 
 export const App = () => {
-  return <NavigationMenu links={navLinks} />;
+  // return <NavigationMenu links={navLinks} />;
+  return <ContentCollection />;
 };
