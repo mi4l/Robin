@@ -1,5 +1,5 @@
 import React from 'React';
-import './Skeleton.scss';
+import './skeleton.scss';
 
 export const Skeleton = () => {
   return <div className='skeleton'></div>;

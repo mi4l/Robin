@@ -1,5 +1,5 @@
 import React from 'react';
-import './ContentCollection.scss';
+import './content-collection.scss';
 import { ContentSkeleton } from './ContentSkeleton';
 
 export const ContentCollection = () => {
