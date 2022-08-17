@@ -1,5 +1,6 @@
 import React from 'react';
 import './ContentCollection.scss';
+import { Skeleton } from '../Skeleton/Skeleton';
 
 export const ContentCollection = () => {
   return (
@@ -23,55 +24,55 @@ export const ContentCollection = () => {
       <tbody>
         <tr>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div className='skeleton'></div>
-          </td>
-          <td>
-            <div className='skeleton'></div>
-          </td>
-          <td>
-            <div className='skeleton'></div>
-          </td>
-          <td>
-            <div className='skeleton'></div>
-          </td>
-          <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
         </tr>
 
         <tr>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
           </td>
           <td>
-            <div className='skeleton'></div>
+            <Skeleton />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Skeleton />
+          </td>
+          <td>
+            <Skeleton />
+          </td>
+          <td>
+            <Skeleton />
+          </td>
+          <td>
+            <Skeleton />
+          </td>
+          <td>
+            <Skeleton />
           </td>
         </tr>
 

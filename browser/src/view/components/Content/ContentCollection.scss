@@ -27,29 +27,10 @@ td {
   padding: 0 1.5rem;
 }
 
-.skeleton {
-  width: 100%;
-  height: 1rem;
-  margin-bottom: 0.25rem;
-  border-radius: 1rem;
-  background-color: darkgrey;
-  animation: skeleton-loading 1.5s linear infinite alternate;
-}
-
 .accounts {
   width: 8.25rem;
 }
 
 .description {
   width: 31.25rem;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-color: hsl(0, 0%, 70%);
-  }
-
-  100% {
-    background-color: hsl(0, 0%, 95%);
-  }
 }
