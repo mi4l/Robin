@@ -44,19 +44,19 @@ ul {
   .nav-icon {
     width: 20px;
     height: 20px;
-    stroke: $COLOR-NAV-ICON;
+    stroke: $COLOR-LIGHT-PURPLE;
   }
 
   .avatar {
     width: 48px;
     height: 48px;
     border-radius: 100;
-    background-color: $COLOR-AVATAR-BG;
-    color: $COLOR-AVATAR-FONT;
+    background-color: $COLOR-OFF-WHITE;
+    color: $COLOR-MEDIUM-PURPLE;
   }
 
   &:hover {
-    background-color: $COLOR-NAV-ICON-SELECTED-BG;
+    background-color: $COLOR-DARK-PURPLE;
     transition: background-color 200ms linear;
   }
 }
