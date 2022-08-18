@@ -93,7 +93,21 @@ const navLinks = [
   },
 ];
 
+const fetchContentCollection = () => {
+  const requestContentCollection = new Request('/content', {
+    method: 'GET',
+  });
+
+  fetch(requestContentCollection)
+    .then(response => {
+      response.json();
+      console.log(response);
+    })
+    .then(data => console.log('Success:', data))
+    .catch(error => console.log('Error:', error));
+};
+
 export const App = () => {
-  // return <NavigationMenu links={navLinks} />;
-  return <ContentCollection />;
+  fetchContentCollection();
+  return <NavigationMenu links={navLinks} />;
 };
